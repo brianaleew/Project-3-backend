@@ -9,6 +9,8 @@ Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 The GalleryHub app is an art sharing app for curators and artists to share their art/galleries with the world.
 This app was made using the MERN stack. For more information on how we created this app, check out the rest of this repository!
 
+This is the backend repository for the GalleryHub app. Click this link to view our front end client: (https://github.com/brianaleew/Project-3-FrontEnd) 
+
 - link to project will be added upon deployment
 
 ## User Stories
@@ -31,20 +33,6 @@ Curators should be able to:
 - View Artist profiles upon clicking "Artist Profiles"
 - Add, View, Edit and Delete Artists Info from their Gallery
 - Add, View, Edit and Delete Artworks from their Gallery
-
-## Wireframes
-
-![Landing Page, Sign In Form, Hamburger Menu ](/Images/figmaOne.png)
-
-![Gallery Pages](/Images/figmaTwo.png)
-
-![Artist Pages](/Images/figmaThree.png)
-
-![Artwork Pages ](/Images/figmaFour.png)
-
-## Entity Relationship Diagrams (ERDs)
-
-![ERD Image ](/Images/newERD.png)
 
 ## Routes Tables
 
@@ -91,7 +79,7 @@ Curators should be able to:
 
 Our general approach for this project was to start simple and basic. We narrowed down what we wanted our main functions of the site to be through group discussion and user stories. Then, we translated our desires into pieces of code using ERDs.
 
-We approached our design with the industry standard "mobile-first" method, as shown in our wireframes. As far as the "look" of our website, we decided that a simple, clean design makes the most sense for an application centered around art.
+We approached our design with the industry standard "mobile-first" method, as shown in our wireframes (located in our front-end repo). As far as the "look" of our website, we decided that a simple, clean design makes the most sense for an application centered around art.
 
 ## Unsolved Issues/Major Hurdles
 

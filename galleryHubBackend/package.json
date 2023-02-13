@@ -1,7 +1,7 @@
 {
-  "name": "express-auth-mongoose-boilerplate",
+  "name": "gallery-hub",
   "version": "1.0.0",
-  "description": "Auth boilerplate for mongoose express using token auth",
+  "description": "The backend code for our app GalleryHub",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",

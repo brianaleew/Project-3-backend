@@ -6,24 +6,36 @@ const mongoose = require('mongoose')
 // since we only need the schema, we can skip destructuring from mongoose
 
 const artworkSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
-    location: {
-        type: String,
-        required: true
+    date: {
+        type: Number,
+        
     },
 
-    website: {
+    img: {
         type: String,
-        required: true
+        
     },
-   description: {
+
+    media: {
         type: String,
+        
+    },
+
+    artist: [artists],
+
+    description: {
+        type: String,
+        
+    },
+    artist: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Artist',
         required: true,
     },
-    
 
 }, { timestamps: true })
 

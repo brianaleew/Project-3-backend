@@ -9,7 +9,7 @@ Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 The GalleryHub app is an art sharing app for curators and artists to share their art/galleries with the world.
 This app was made using the MERN stack. For more information on how we created this app, check out the rest of this repository!
 
-- link to project will be added upon deployment 
+- link to project will be added upon deployment
 
 ## User Stories
 
@@ -44,37 +44,48 @@ Curators should be able to:
 
 ## Entity Relationship Diagrams (ERDs)
 
-![ERD Image ](/Images/ERD.png)
+![ERD Image ](/Images/newERD.png)
 
 ## Routes Tables
+
 ### Curators
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| GET   | `/galleries`             | `galleries#index`  |
-| GET   | `/galleries/:id`         | `galleries#show`   |
-| POST   | `/galleries`            | `galleries#create` |
-| PATCH  | `/galleries/:id`        | `galleries#update` |
-| DELETE | `/galleries/:id`        | `galleries#delete` |
+| Verb   | URI Pattern      | Controller#Action  |
+| ------ | ---------------- | ------------------ |
+| GET    | `/galleries`     | `galleries#index`  |
+| GET    | `/galleries/:id` | `galleries#show`   |
+| POST   | `/galleries`     | `galleries#create` |
+| PATCH  | `/galleries/:id` | `galleries#update` |
+| DELETE | `/galleries/:id` | `galleries#delete` |
 
 ### Users
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password/`    | `users#changepw`  |
-| DELETE | `/sign-out/`           | `users#signout`   |
+| Verb   | URI Pattern         | Controller#Action |
+| ------ | ------------------- | ----------------- |
+| POST   | `/sign-up`          | `users#signup`    |
+| POST   | `/sign-in`          | `users#signin`    |
+| PATCH  | `/change-password/` | `users#changepw`  |
+| DELETE | `/sign-out/`        | `users#signout`   |
 
-### Artist
+### Artists
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| GET   | `/artwork`             | `artwork#index`  |
-| GET   | `/artwork/:id`         | `artwork#show`   |
-| POST   | `/artwork`            | `artwork#create` |
-| PATCH  | `/artwork/:id`        | `artwork#update` |
-| DELETE | `/artwork/:id`        | `artwork#delete` |
+| Verb   | URI Pattern                     | Controller#Action |
+| ------ | ------------------------------- | ----------------- |
+| GET    | `/artists`                      | `artist#index`    |
+| GET    | `/artists/:id`                  | `artist#show`     |
+| POST   | `/artists/:galleryId/:artistId` | `artist#create`   |
+| PATCH  | `/artists/:galleryId/:artistId` | `artist#update`   |
+| DELETE | `/artists/:galleryId/:artistId` | `artist#delete`   |
+
+### Artworks
+
+| Verb   | URI Pattern    | Controller#Action |
+| ------ | -------------- | ----------------- |
+| GET    | `/artwork`     | `artwork#index`   |
+| GET    | `/artwork/:id` | `artwork#show`    |
+| POST   | `/artwork`     | `artwork#create`  |
+| PATCH  | `/artwork/:id` | `artwork#update`  |
+| DELETE | `/artwork/:id` | `artwork#delete`  |
 
 ## General Approach
 

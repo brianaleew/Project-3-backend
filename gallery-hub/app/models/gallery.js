@@ -4,6 +4,9 @@
 
 const mongoose = require('mongoose')
 
+const artworkSchema = require('./artwork')
+
+
 const gallerySchema = new mongoose.Schema(
 	{
 		name: {

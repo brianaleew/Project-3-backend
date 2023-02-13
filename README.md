@@ -2,16 +2,16 @@
 
 Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 
-- picture of final landing page will be here
+-   picture of final landing page will be here
 
 ## Overview
 
 The GalleryHub app is an art sharing app for curators and artists to share their art/galleries with the world.
 This app was made using the MERN stack. For more information on how we created this app, check out the rest of this repository!
 
-This is the backend repository for the GalleryHub app. Click this link to view our front end client: (https://github.com/brianaleew/Project-3-FrontEnd) 
+This is the backend repository for the GalleryHub app. Click this link to view our front end client: (https://github.com/brianaleew/Project-3-FrontEnd)
 
-- link to project will be added upon deployment
+-   link to project will be added upon deployment
 
 ## User Stories
 
@@ -19,29 +19,28 @@ For this app, we are targeting two main kinds of users: "Curators" and "Viewers"
 
 All users should be able to:
 
-- Be greeted by a landing page featuring an index of galleries
-- Be able to sign up upon clicking "Sign Up"
-- Choose whether they would like to make a "Curator" account or an "Explorer" Account
-- Be able to log in upon clicking "Log In"
-- View all galleries by clicking "Explore Exhibits"
-- View an index of all artworks inside each gallery upon clicking the gallery
-- View each individual artwork on its own show page
+-   Be greeted by a landing page featuring an index of galleries
+-   Be able to sign up upon clicking "Sign Up"
+-   Choose whether they would like to make a "Curator" account or an "Explorer" Account
+-   Be able to log in upon clicking "Log In"
+-   View all galleries by clicking "Explore Exhibits"
+-   View an index of all artworks inside each gallery upon clicking the gallery
+-   View each individual artwork on its own show page
 
 Curators should be able to:
 
-- Create, View, Edit and Delete Galleries they own upon clicking "Manage Exhibits"
-- View Artist profiles upon clicking "Artist Profiles"
-- Add, View, Edit and Delete Artists Info from their Gallery
-- Add, View, Edit and Delete Artworks from their Gallery
+-   Create, View, Edit and Delete Galleries they own upon clicking "Manage Exhibits"
+-   View Artist profiles upon clicking "Artist Profiles"
+-   Add, View, Edit and Delete Artists Info from their Gallery
+-   Add, View, Edit and Delete Artworks from their Gallery
 
+## ERDs
 
-
-## ERDs 
 ![ERD Picture ](/Images/newERD.png)
 
 ## Routes Tables
 
-### Galleries 
+### Galleries
 
 | Verb   | URI Pattern      | Controller#Action  |
 | ------ | ---------------- | ------------------ |
@@ -92,12 +91,12 @@ We approached our design with the industry standard "mobile-first" method, as sh
 
 ## Technologies Used
 
-- JavaScript
-- Express
-- MongoDb
-- Mongoose
-- NodeJs
+-   JavaScript
+-   Express
+-   MongoDb
+-   Mongoose
+-   NodeJs
 
 ## Installation Instructions
 
-TBA
+Hello again!

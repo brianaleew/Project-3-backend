@@ -66,9 +66,9 @@ Curators should be able to:
 | ------ | ------------------------------- | ----------------- |
 | GET    | `/artists`                      | `artist#index`    |
 | GET    | `/artists/:id`                  | `artist#show`     |
-| POST   | `/artists/:galleryId/:artistId` | `artist#create`   |
-| PATCH  | `/artists/:galleryId/:artistId` | `artist#update`   |
-| DELETE | `/artists/:galleryId/:artistId` | `artist#delete`   |
+| POST   | `/artists`                      | `artist#create`   |
+| PATCH  | `/artists/:artistId`            | `artist#update`   |
+| DELETE | `/artists/:artistId`            | `artist#delete`   |
 
 ### Artworks
 
@@ -88,7 +88,7 @@ We approached our design with the industry standard "mobile-first" method, as sh
 
 ## Unsolved Issues/Major Hurdles
 
-TBA
+- Artists being a subdoc of a subdoc (will add more detail later)
 
 ## Technologies Used
 

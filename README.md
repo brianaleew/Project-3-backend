@@ -41,7 +41,7 @@ Curators should be able to:
 
 ## Routes Tables
 
-### Curators
+### Galleries 
 
 | Verb   | URI Pattern      | Controller#Action  |
 | ------ | ---------------- | ------------------ |

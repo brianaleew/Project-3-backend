@@ -9,7 +9,7 @@ Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 The GalleryHub app is an art sharing app for curators and artists to share their art/galleries with the world.
 This app was made using the MERN stack. For more information on how we created this app, check out the rest of this repository!
 
-- link to project will be added upon deployment
+- link to project will be added upon deployment 
 
 ## User Stories
 

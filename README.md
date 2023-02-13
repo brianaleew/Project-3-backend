@@ -34,6 +34,11 @@ Curators should be able to:
 - Add, View, Edit and Delete Artists Info from their Gallery
 - Add, View, Edit and Delete Artworks from their Gallery
 
+
+
+## ERDs 
+![ERD Picture ](/Images/newERD.png)
+
 ## Routes Tables
 
 ### Curators

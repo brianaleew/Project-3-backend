@@ -29,7 +29,8 @@ Curators should be able to:
 
 - Create, View, Edit and Delete Galleries they own upon clicking "Manage Exhibits"
 - View Artist profiles upon clicking "Artist Profiles"
-- View, Edit and Delete Artists Info from their Gallery
+- Add, View, Edit and Delete Artists Info from their Gallery
+- Add, View, Edit and Delete Artworks from their Gallery
 
 ## Wireframes
 

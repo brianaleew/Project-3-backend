@@ -15,6 +15,7 @@ const handle404 = customErrors.handle404
 // we'll use this function to send 401 when a user tries to modify a resource
 // that's owned by someone else
 const requireOwnership = customErrors.requireOwnership
+const notAllowed = customErrors.NotAllowedError
 
 // this is middleware that will remove blank fields from `req.body`
 const removeBlanks = require('../../lib/remove_blank_fields')
@@ -86,7 +87,9 @@ router.post('/galleries', requireToken, removeBlanks, (req, res, next) => {
             // if an error occurs, pass it off to our error handler
             .catch(next)
     } else {
-        res.status(401)
+        throw new notAllowed()
+        // wtfDoIDoHere(omg)
+        // res.status(401) -- this didn't really work, infinite hang and no actual error code
     }
 })
 
@@ -112,24 +115,30 @@ router.patch('/galleries/:id', requireToken, removeBlanks, (req, res, next) => {
             .then(() => res.sendStatus(204))
             // if an error occurs, pass it to the handler
             .catch(next)
+    } else {
+        throw new notAllowed()
     }
 })
 
 // DESTROY
 // DELETE /galleries/:id
 router.delete('/galleries/:id', requireToken, (req, res, next) => {
-    Gallery.findById(req.params.id)
-        .then(handle404)
-        .then(gallery => {
-            // throw an error if current user doesn't own the gallery
-            requireOwnership(req, gallery)
-            // delete the gallery ONLY IF the above didn't throw
-            gallery.deleteOne()
-        })
-        // send back 204 and no content if the deletion succeeded
-        .then(() => res.sendStatus(204))
-        // if an error occurs, pass it to the handler
-        .catch(next)
+    if (req.user.isCurator) {
+        Gallery.findById(req.params.id)
+            .then(handle404)
+            .then(gallery => {
+                // throw an error if current user doesn't own the gallery
+                requireOwnership(req, gallery)
+                // delete the gallery ONLY IF the above didn't throw
+                gallery.deleteOne()
+            })
+            // send back 204 and no content if the deletion succeeded
+            .then(() => res.sendStatus(204))
+            // if an error occurs, pass it to the handler
+            .catch(next)
+    } else {
+        throw new notAllowed()
+    }
 })
 
 module.exports = router

@@ -10,49 +10,12 @@ const Artist = require('../models/artist')
 const customErrors = require('../../lib/custom_errors')
 const handle404 = customErrors.handle404
 const requireOwnership = customErrors.requireOwnership
+const notAllowed = customErrors.NotAllowedError
 const removeBlanks = require('../../lib/remove_blank_fields')
 const requireToken = passport.authenticate('bearer', { session: false })
 
 // instantiate a router (mini app that only handles routes)
 const router = express.Router()
-
-//Temporary Seed Route
-
-router.get('/artist-seed', (req, res) => {
-    req.body.artist.owner = req.user.id
-    const starterArtists = [
-        {
-            name: 'Briana Wright',
-            description: 'An artist',
-            location: 'City,State',
-            website: 'www.google.com',
-        },
-        {
-            name: 'Eric Elsner',
-            description: 'An artist',
-            location: 'City,State',
-            website: 'www.google.com',
-        },
-        {
-            name: 'Belal Elkurd',
-            description: 'An artist',
-            location: 'City,State',
-            website: 'www.google.com',
-        },
-    ]
-
-    Artist.deleteMany({})
-        .populate('owner')
-        .then(() => {
-            Artist.create(starterArtists)
-                .then(data => {
-                    res.json(data)
-                })
-                .catch(err =>
-                    console.log('The following error occurred: \n', err)
-                )
-        })
-})
 
 //Artist Routes
 
@@ -84,56 +47,68 @@ router.get('/artists/:id', (req, res, next) => {
 // CREATE
 // POST /artists
 router.post('/artists', requireToken, removeBlanks, (req, res, next) => {
-    // set owner of new artist to be current user
-    req.body.artist.owner = req.user.id
+    if (req.user.isCurator) {
+        // set owner of new artist to be current user
+        req.body.artist.owner = req.user.id
 
-    Artist.create(req.body.artist)
-        // respond to succesful `create` with status 201 and JSON of the new artist
-        .then(artist => {
-            res.status(201).json({ artist: artist.toObject() })
-        })
-        // if an error occurs, pass it off to our error handler
-        .catch(next)
+        Artist.create(req.body.artist)
+            // respond to succesful `create` with status 201 and JSON of the new artist
+            .then(artist => {
+                res.status(201).json({ artist: artist.toObject() })
+            })
+            // if an error occurs, pass it off to our error handler
+            .catch(next)
+    } else {
+        throw new notAllowed()
+    }
 })
 
 // UPDATE
 // PATCH /artists/:id
 router.patch('/artists/:id', requireToken, removeBlanks, (req, res, next) => {
-    // if the client attempts to change the `owner` property by including a new
-    // owner, prevent that by deleting that key/value pair
-    delete req.body.artist.owner
+    if (req.user.isCurator) {
+        // if the client attempts to change the `owner` property by including a new
+        // owner, prevent that by deleting that key/value pair
+        delete req.body.artist.owner
 
-    Artist.findById(req.params.id)
-        .then(handle404)
-        .then(artist => {
-            // pass the `req` object and the Mongoose record to `requireOwnership`
-            // it will throw an error if the current user isn't the owner
-            requireOwnership(req, artist)
+        Artist.findById(req.params.id)
+            .then(handle404)
+            .then(artist => {
+                // pass the `req` object and the Mongoose record to `requireOwnership`
+                // it will throw an error if the current user isn't the owner
+                requireOwnership(req, artist)
 
-            // pass the result of Mongoose's `.update` to the next `.then`
-            return artist.updateOne(req.body.artist)
-        })
-        // if that succeeded, return 204 and no JSON
-        .then(() => res.sendStatus(204))
-        // if an error occurs, pass it to the handler
-        .catch(next)
+                // pass the result of Mongoose's `.update` to the next `.then`
+                return artist.updateOne(req.body.artist)
+            })
+            // if that succeeded, return 204 and no JSON
+            .then(() => res.sendStatus(204))
+            // if an error occurs, pass it to the handler
+            .catch(next)
+    } else {
+        throw new notAllowed()
+    }
 })
 
 // DESTROY
 // DELETE /artists/:id
 router.delete('/artists/:id', requireToken, (req, res, next) => {
-    Artist.findById(req.params.id)
-        .then(handle404)
-        .then(artist => {
-            // throw an error if current user doesn't own the artist
-            requireOwnership(req, artist)
-            // delete the artist ONLY IF the above didn't throw
-            artist.deleteOne()
-        })
-        // send back 204 and no content if the deletion succeeded
-        .then(() => res.sendStatus(204))
-        // if an error occurs, pass it to the handler
-        .catch(next)
+    if (req.user.isCurator) {
+        Artist.findById(req.params.id)
+            .then(handle404)
+            .then(artist => {
+                // throw an error if current user doesn't own the artist
+                requireOwnership(req, artist)
+                // delete the artist ONLY IF the above didn't throw
+                artist.deleteOne()
+            })
+            // send back 204 and no content if the deletion succeeded
+            .then(() => res.sendStatus(204))
+            // if an error occurs, pass it to the handler
+            .catch(next)
+    } else {
+        throw new notAllowed()
+    }
 })
 
 module.exports = router

@@ -5,38 +5,31 @@ const mongoose = require('mongoose')
 // artwork will be part of the artwork array added to galleries.
 // since we only need the schema, we can skip destructuring from mongoose
 
-const artworkSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
+const artworkSchema = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        date: {
+            type: Number,
+        },
+        img: {
+            type: String,
+        },
+        media: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        artist: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Artist',
+            required: true,
+        },
     },
-    date: {
-        type: Number,
-        
-    },
-
-    img: {
-        type: String,
-        
-    },
-
-    media: {
-        type: String,
-        
-    },
-
-    artist: [artists],
-
-    description: {
-        type: String,
-        
-    },
-    artist: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Artist',
-        required: true,
-    },
-
-}, { timestamps: true })
+    { timestamps: true }
+)
 
 module.exports = artworkSchema

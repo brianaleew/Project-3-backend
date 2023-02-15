@@ -11,6 +11,7 @@ const artistSchema = new mongoose.Schema(
         description: String,
         location: String,
         website: String,
+        img: String,
         owner: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',

@@ -8,21 +8,21 @@ const starterArtists = [
         description: 'An artist',
         location: 'City,State',
         website: 'www.google.com',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2UKwXIL5_ezXZNb6Y9zv6lcuwNsr3c_PdSQ&usqp=CAU', 
+        img: '/power.jpeg', 
     },
     {
         name: 'Eric Elsner',
         description: 'An artist',
         location: 'City,State',
         website: 'www.google.com',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2UKwXIL5_ezXZNb6Y9zv6lcuwNsr3c_PdSQ&usqp=CAU', 
+        img: '/power.jpeg', 
     },
     {
         name: 'Belal Elkurd',
         description: 'An artist',
         location: 'City,State',
         website: 'www.google.com',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2UKwXIL5_ezXZNb6Y9zv6lcuwNsr3c_PdSQ&usqp=CAU', 
+        img: '/power.jpeg', 
     },
 ]
 

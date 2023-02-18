@@ -59,6 +59,26 @@ router.get('/galleries', (req, res, next) => {
         .catch(next)
 })
 
+// INDEX -- MINE
+// GET /galleries-mine/:id
+
+router.get('/galleries-mine', requireToken, (req, res, next) => {
+    if (req.user.isCurator) {
+        Gallery.find({ owner: req.user.id })
+            .populate('owner')
+            .then(galleries => {
+                console.log(galleries)
+                return galleries.map(gallery => gallery.toObject())
+            })
+            // respond with status 200 and JSON for galleries
+            .then(galleries => res.status(200).json({ galleries: galleries }))
+            // if an error occurs, pass it to the handler
+            .catch(next)
+    } else {
+        throw new notAllowed()
+    }
+})
+
 // SHOW
 // GET /galleries/:id
 router.get('/galleries/:id', (req, res, next) => {

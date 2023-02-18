@@ -19,6 +19,20 @@ const router = express.Router()
 
 // ROUTES
 
+// INDEX
+
+router.get('/artworks/:galleryId', requireToken, (req, res, next) => {
+    const galleryId = req.params.galleryId
+
+    Gallery.findById(galleryId)
+        .then(handle404)
+        .then(gallery => {
+            return gallery.artworks.map(artwork => artwork.toObject())
+        })
+        .then(artwork => res.status(200).json({ artwork: artwork }))
+        .catch(next)
+})
+
 // CREATE/ADD Artwork to gallery
 router.post(
     '/artworks/:galleryId',

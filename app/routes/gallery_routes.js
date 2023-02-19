@@ -53,14 +53,14 @@ router.get('/galleries', (req, res, next) => {
         .then(galleries => {
             return galleries.map(gallery => gallery.toObject())
         })
-        // respond with status 200 and JSON for galleries
         .then(galleries => res.status(200).json({ galleries: galleries }))
-        // if an error occurs, pass it to the handler
         .catch(next)
 })
 
 // INDEX -- MINE
 // GET /galleries-mine/:id
+
+// ADD REQUIRETOKEN BACK IN
 
 router.get('/galleries-mine', requireToken, (req, res, next) => {
     if (req.user.isCurator) {
@@ -70,9 +70,7 @@ router.get('/galleries-mine', requireToken, (req, res, next) => {
                 console.log(galleries)
                 return galleries.map(gallery => gallery.toObject())
             })
-            // respond with status 200 and JSON for galleries
             .then(galleries => res.status(200).json({ galleries: galleries }))
-            // if an error occurs, pass it to the handler
             .catch(next)
     } else {
         throw new notAllowed()
@@ -86,9 +84,7 @@ router.get('/galleries/:id', (req, res, next) => {
     // req.params.id will be set based on the `:id` in the route
     Gallery.findById(req.params.id)
         .then(handle404)
-        // a success will respond with 200 and JSON
         .then(gallery => res.status(200).json({ gallery: gallery.toObject() }))
-        // or if error, pass it to the handler
         .catch(next)
 })
 
@@ -100,11 +96,9 @@ router.post('/galleries', requireToken, removeBlanks, (req, res, next) => {
         req.body.gallery.owner = req.user.id
 
         Gallery.create(req.body.gallery)
-            // respond to succesful `create` with status 201 and JSON of the new gallery
             .then(gallery => {
                 res.status(201).json({ gallery: gallery.toObject() })
             })
-            // if an error occurs, pass it off to our error handler
             .catch(next)
     } else {
         throw new notAllowed()
@@ -131,9 +125,7 @@ router.patch('/galleries/:id', requireToken, removeBlanks, (req, res, next) => {
                 // pass the result of Mongoose's `.update` to the next `.then`
                 return gallery.updateOne(req.body.gallery)
             })
-            // if that succeeded, return 204 and no JSON
             .then(() => res.sendStatus(204))
-            // if an error occurs, pass it to the handler
             .catch(next)
     } else {
         throw new notAllowed()
@@ -152,9 +144,7 @@ router.delete('/galleries/:id', requireToken, (req, res, next) => {
                 // delete the gallery ONLY IF the above didn't throw
                 gallery.deleteOne()
             })
-            // send back 204 and no content if the deletion succeeded
             .then(() => res.sendStatus(204))
-            // if an error occurs, pass it to the handler
             .catch(next)
     } else {
         throw new notAllowed()

@@ -33,6 +33,25 @@ router.get('/artworks/:galleryId', requireToken, (req, res, next) => {
         .catch(next)
 })
 
+router.get(
+    '/artworks/:galleryId/:artworkId',
+    requireToken,
+    (req, res, next) => {
+        const { galleryId, artworkId } = req.params
+        if (req.user.isCurator) {
+            Gallery.findById(galleryId)
+                .then(handle404)
+                .then(gallery => {
+                    return gallery.artworks.id(artworkId)
+                })
+                .then(artwork => res.status(200).json({ artwork: artwork }))
+                .catch(next)
+        } else {
+            throw new notAllowed()
+        }
+    }
+)
+
 // CREATE/ADD Artwork to gallery
 router.post(
     '/artworks/:galleryId',

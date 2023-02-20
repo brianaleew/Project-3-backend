@@ -2,7 +2,7 @@
 
 Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 
--   picture of final landing page will be here
+- picture of final landing page will be here
 
 ## Overview
 
@@ -11,7 +11,7 @@ This app was made using the MERN stack. For more information on how we created t
 
 This is the backend repository for the GalleryHub app. Click this link to view our front end client: (https://github.com/brianaleew/Project-3-FrontEnd)
 
--   link to project will be added upon deployment
+- link to project will be added upon deployment
 
 ## User Stories
 
@@ -19,24 +19,24 @@ For this app, we are targeting two main kinds of users: "Curators" and "Viewers"
 
 All users should be able to:
 
--   Be greeted by a landing page featuring an index of galleries
--   Be able to sign up upon clicking "Sign Up"
--   Choose whether they would like to make a "Curator" account or an "Explorer" Account
--   Be able to log in upon clicking "Log In"
--   View all galleries by clicking "Explore Exhibits"
--   View an index of all artworks inside each gallery upon clicking the gallery
--   View each individual artwork on its own show page
+- Be greeted by a landing page featuring an index of galleries
+- Be able to sign up upon clicking "Sign Up"
+- Choose whether they would like to make a "Curator" account or an "Explorer" Account
+- Be able to log in upon clicking "Log In"
+- View all galleries by clicking "Explore Exhibits"
+- View an index of all artworks inside each gallery upon clicking the gallery
+- View each individual artwork on its own show page
 
 Curators should be able to:
 
--   Create, View, Edit and Delete Galleries they own upon clicking "Manage Exhibits"
--   View Artist profiles upon clicking "Artist Profiles"
--   Add, View, Edit and Delete Artists Info from their Gallery
--   Add, View, Edit and Delete Artworks from their Gallery
+- Create, View, Edit and Delete Galleries they own upon clicking "Manage Exhibits"
+- View Artist profiles upon clicking "Artist Profiles"
+- Add, View, Edit and Delete Artists Info from their Gallery
+- Add, View, Edit and Delete Artworks from their Gallery
 
 ## ERDs
 
-![ERD Picture ](/Images/newERD.png)
+![ERD Picture ](/Images/finalERD.png)
 
 ## Routes Tables
 
@@ -61,13 +61,13 @@ Curators should be able to:
 
 ### Artists
 
-| Verb   | URI Pattern                     | Controller#Action |
-| ------ | ------------------------------- | ----------------- |
-| GET    | `/artists`                      | `artist#index`    |
-| GET    | `/artists/:id`                  | `artist#show`     |
-| POST   | `/artists`                      | `artist#create`   |
-| PATCH  | `/artists/:artistId`            | `artist#update`   |
-| DELETE | `/artists/:artistId`            | `artist#delete`   |
+| Verb   | URI Pattern          | Controller#Action |
+| ------ | -------------------- | ----------------- |
+| GET    | `/artists`           | `artist#index`    |
+| GET    | `/artists/:id`       | `artist#show`     |
+| POST   | `/artists`           | `artist#create`   |
+| PATCH  | `/artists/:artistId` | `artist#update`   |
+| DELETE | `/artists/:artistId` | `artist#delete`   |
 
 ### Artworks
 
@@ -91,12 +91,10 @@ We approached our design with the industry standard "mobile-first" method, as sh
 
 ## Technologies Used
 
--   JavaScript
--   Express
--   MongoDb
--   Mongoose
--   NodeJs
+- JavaScript
+- Express
+- MongoDb
+- Mongoose
+- NodeJs
 
 ## Installation Instructions
-
-Hello again!

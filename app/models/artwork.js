@@ -26,7 +26,6 @@ const artworkSchema = new mongoose.Schema(
         artist: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Artist',
-            required: true,
         },
     },
     { timestamps: true }

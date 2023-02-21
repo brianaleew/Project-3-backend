@@ -2,7 +2,7 @@
 
 Created By: **Briana Wright**, **Eric Elsner** and **Belal Elkurd**
 
-- picture of final landing page will be here
+![Landing Page](/Images/landingPage.png)
 
 ## Overview
 
@@ -87,7 +87,9 @@ We approached our design with the industry standard "mobile-first" method, as sh
 
 ## Unsolved Issues/Major Hurdles
 
-- Artists being a subdoc of a subdoc (will add more detail later)
+When we initially created our repository, we nested our code one layer too deep. This was because we initially made our repository with only a Readme file and then added our boilerplate after. This fact combined with a slight learning curve with Github led to some complications early on in the project but with time and teamwork, we were able to iron those kinks out. We moved all our code to the correct place and finally got some pull requests without conflicts!
+
+At a point in working on our project, we realized that we made some mistakes when planning out our ERDs and routes. Our Artists component currently is not connected to our user experience the way we intended although all the related front end codes for Artist pages work. Unfortunately, we did not have enough time to connect all our components together. Luckily, no app is ever "done" and there is always more time to make apps better. In our next version, we would have a much better, more seamless user experience where our users can control Artists in their Galleries.
 
 ## Technologies Used
 

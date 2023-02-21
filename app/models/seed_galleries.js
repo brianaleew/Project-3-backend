@@ -8,12 +8,12 @@ const starterGalleries = [
         description:
             'A super hip place where you can feel really uncomfortable all of the time.',
         location: 'Nashville, TN',
-        img: '/images/photo-one',
+        img: 'https://source.unsplash.com/TDNZE9Kvyrs',
         artworks: [
             {
                 title: 'The Two Fridas',
                 date: 1939,
-                img: '/images/the-two-fridas.jpg',
+                img: 'https://unsplash.com/photos/kJQ6cDyodAM',
                 media: 'oil on canvas',
                 description:
                     "This portrait shows Frida's two different personalities. One is the traditional Frida in Tehuana costume, with a broken heart, sitting next to an independent, modern dressed Frida.",
@@ -44,7 +44,7 @@ const starterGalleries = [
         description:
             'No talking. No breathing. No clothing.  An art experience so titilating your mind will be blown.  Just go outside first.',
         location: 'Montreal, QC',
-        img: '/images/photo-two',
+        img: 'https://source.unsplash.com/UCNaGWn4EfU',
         artworks: [
             {
                 title: 'Self Portrait with Thorn Necklace and Hummingbird',
@@ -79,7 +79,7 @@ const starterGalleries = [
         description:
             'Super cool, man. Vibe, chill, hang out. And have a burrito, bro.',
         location: 'Venice, CA',
-        img: '/images/photo-three',
+        img: 'https://source.unsplash.com/V3-HhUXO_os',
         artworks: [
             {
                 title: 'Self-Portrait Dedicated to Leon Trotsky',
@@ -112,7 +112,7 @@ const starterGalleries = [
         name: "Bob's Art Emporium",
         description: 'Up to 99% off all artwork all the time!! Come buy some!',
         location: 'Peoria, IL',
-        img: '/images/photo-four',
+        img: 'https://source.unsplash.com/HlNGaRa2eXk',
         artworks: [
             {
                 title: 'Roots',

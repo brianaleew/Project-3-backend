@@ -13,7 +13,7 @@ const starterGalleries = [
             {
                 title: 'The Two Fridas',
                 date: 1939,
-                img: 'https://unsplash.com/photos/kJQ6cDyodAM',
+                img: '/images/the-two-fridas.jpg',
                 media: 'oil on canvas',
                 description:
                     "This portrait shows Frida's two different personalities. One is the traditional Frida in Tehuana costume, with a broken heart, sitting next to an independent, modern dressed Frida.",
